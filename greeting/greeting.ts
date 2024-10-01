@@ -6,10 +6,10 @@ interface Response {
 
 export const greeting = api({
     method: 'GET',
-    path: '/greeting',
+    path: '/greeting/:name',
     expose: true
 },
-    async ():Promise<Response> => {
-        return { data: 'Hello World!' }
+    async ({ name }: { name: string }):Promise<Response> => {
+        return { data: `Hello ${name}` }
     }    
 );
